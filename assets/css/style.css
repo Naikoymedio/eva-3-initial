@@ -1,0 +1,36 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #ffffff;
+}
+.caezinha{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: bottom;
+    border-style: inset;
+    border-top: #ffffff;
+    border-left: #ffffff;
+    border-right: #ffffff;
+    border-bottom-color: #F0F1F2;
+    
+}
+.logo{
+    height: 100px;
+    width: 200;
+}
+.textocaeza{
+    display: flex;
+    justify-content: bottom;
+    color: #424242;
+    font-size: larger;
+
+}
+.destacado{
+    background-color: #F0F1F2;
+    margin-left: 400px;
+    margin-right: 400px;
+}
+.formulario{
+    display: flex;
+    justify-content: center;
+    font-size: 150%;
+}
