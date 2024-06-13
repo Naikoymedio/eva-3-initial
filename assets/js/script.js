@@ -48,8 +48,22 @@ document.addEventListener("DOMContentLoaded", () => {
         const updOption = document.createElement("option"); // Crear una opción para el selector de actualización
         updOption.value = i; // Establecer el valor de la opción
         updOption.text = i; // Establecer el texto de la opción
-        UPDedadSelect.appendChild(updOption); // Añadir la opción al selector de edad para actualización
+        UPDedadSelect.appendChild(updOption); // Añadir la opción al selector de edad para actualización*/
     }
+});
+
+// Función para establecer opciones seleccionadas por defecto
+const establecerSeleccionPorDefecto = () => {
+    // Para el radio button de género
+    document.getElementById("Masculino").checked = true; // Marcar 'Masculino' por defecto
+
+    // Para el checkbox de preferencia
+    document.getElementById("hombres").checked = true; // Marcar 'Hombres' por defecto
+};
+
+// Llamar a la función al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+    establecerSeleccionPorDefecto();
 });
 
 // Función para validar los datos del formulario
@@ -85,21 +99,15 @@ const validarDatos = (persona) => {
     }
 
     // Validar género
-    var generoMasculino = document.getElementById("masculino").checked; // Verifica si el género masculino está seleccionado
-    var generoFemenino = document.getElementById("femenino").checked; // Verifica si el género femenino está seleccionado
-
-    var generoSeleccionado = generoMasculino || generoFemenino; // Comprueba si algún género está seleccionado
+    if (persona.genero !== "Masculino" && persona.genero !== "Femenino") {
+        alert("Selecciona un género válido");
+        return false;
+    }
 
     // Validar preferencias
-    var preferenciaHombres = document.getElementById("hombres").checked; // Verifica si la preferencia por hombres está seleccionada
-    var preferenciaMujeres = document.getElementById("mujeres").checked; // Verifica si la preferencia por mujeres está seleccionada
-
-    var preferenciaSeleccionada = preferenciaHombres || preferenciaMujeres; // Comprueba si alguna preferencia está seleccionada
-
-    // Mostrar alerta si algún campo está vacío
-    if (!generoSeleccionado || !preferenciaSeleccionada) {
-        alert("Por favor, selecciona al menos una opción de género y una preferencia.");
-        return false; // Detener el envío del formulario
+    if (persona.preferencias.length === 0) {
+        alert("Selecciona al menos una preferencia");
+        return false;
     }
 
     return true; // Si todos los campos son válidos
@@ -170,9 +178,9 @@ const mostrarFormularioActualizar = (id, persona) => {
     document.getElementById("UPDdescribete").value = persona.describete;
 
     // Seleccionar género
-    if (persona.genero === "masculino") {
+    if (persona.genero === "Masculino") {
         document.getElementById("UPDmasculino").checked = true;
-    } else if (persona.genero === "femenino") {
+    } else if (persona.genero === "Femenino") {
         document.getElementById("UPDfemenino").checked = true;
     }
 
@@ -189,30 +197,31 @@ const actualizar = async () => {
     const id = document.getElementById("btnActualizar").dataset.id; // Obtener el ID de la persona a actualizar
 
     const persona = {
-        nombre: document.getElementById("UPDnombre").value, // Obtener el valor del nombre
-        apellido: document.getElementById("UPDapellido").value, // Obtener el valor del apellido
-        telefono: document.getElementById("UPDtelefono").value, // Obtener el valor del teléfono
-        email: document.getElementById("UPDemail").value, // Obtener el valor del email
-        rut: document.getElementById("UPDrut").value, // Obtener el valor del RUT
-        edad: parseInt(document.getElementById("UPDedad").value), // Obtener el valor de la edad y convertirlo a entero
-        genero: document.querySelector('input[name="UPDgenero"]:checked').value, // Obtener el valor del género seleccionado
-        preferencias: Array.from(document.querySelectorAll('input[name="UPDpreferencia"]:checked')).map(el => el.value), // Obtener las preferencias seleccionadas
-        describete: document.getElementById("UPDdescribete").value // Obtener el valor del campo "describete"
+        nombre: document.getElementById("UPDnombre").value,
+        apellido: document.getElementById("UPDapellido").value,
+        telefono: document.getElementById("UPDtelefono").value,
+        email: document.getElementById("UPDemail").value,
+        rut: document.getElementById("UPDrut").value,
+        edad: parseInt(document.getElementById("UPDedad").value),
+        genero: document.querySelector('input[name="UPDgenero"]:checked') ? document.querySelector('input[name="UPDgenero"]:checked').value : "",
+        preferencias: Array.from(document.querySelectorAll('input[name="UPDpreferencia"]:checked')).map(el => el.value),
+        describete: document.getElementById("UPDdescribete").value
     };
 
     // Validar datos antes de actualizar
     if (!validarDatos(persona)) return;
 
     try {
-        await actualizarPersona(id, persona); // Llamar a la función para actualizar la persona
-        alert("Persona actualizada con éxito"); // Mostrar mensaje de éxito
-        cancelarActualizacion(); // Cancelar la actualización y volver al formulario de registro
-        traerDatos(); // Actualizar la lista de personas
+        await actualizarPersona(id, persona);
+        alert("Persona actualizada con éxito");
+        cancelarActualizacion();
+        traerDatos();
     } catch (error) {
-        console.error("Error al actualizar persona: ", error); // Mostrar error en la consola
-        alert("Error al actualizar persona"); // Mostrar mensaje de error
+        console.error("Error al actualizar persona: ", error);
+        alert("Error al actualizar persona");
     }
 };
+
 
 // Función para cancelar la actualización y volver al formulario de registro
 const cancelarActualizacion = () => {
