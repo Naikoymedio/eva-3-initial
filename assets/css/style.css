@@ -1,36 +1,248 @@
-body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #ffffff;
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Establece la fuente predeterminada */
+    background-color: #ffffff; /* Establece el color de fondo del cuerpo */
 }
-.caezinha{
-    background-color: #ffffff;
-    display: flex;
-    justify-content: bottom;
-    border-style: inset;
-    border-top: #ffffff;
-    border-left: #ffffff;
-    border-right: #ffffff;
-    border-bottom-color: #F0F1F2;
-    
-}
-.logo{
-    height: 100px;
-    width: 200;
-}
-.textocaeza{
-    display: flex;
-    justify-content: bottom;
-    color: #424242;
-    font-size: larger;
 
+/* Estilos para el modo oscuro */
+.modo-oscuro {
+    background-color: #222; /* Cambia el color de fondo a uno oscuro */
+    color: #fff; /* Cambia el color del texto a blanco */
 }
-.destacado{
-    background-color: #F0F1F2;
-    margin-left: 400px;
-    margin-right: 400px;
+
+/* Estilos para la clase destacado en modo oscuro */
+.modo-oscuro .destacado {
+    background-color: #444; /* Cambia el color de fondo */
+    color: #fff; /* Cambia el color del texto */
+    border: 1px solid #666; /* Cambia el borde */
 }
-.formulario{
-    display: flex;
-    justify-content: center;
-    font-size: 150%;
+
+/* Estilos específicos para ciertos elementos en modo oscuro */
+.modo-oscuro .formulario {
+    background-color: #333; /* Cambia el color de fondo del formulario */
+    color: #fff; /* Cambia el color del texto */
+    border: 1px solid #fff; /* Cambia el borde del formulario */
+}
+
+.modo-oscuro input[type="submit"],
+.modo-oscuro button {
+    background-color: #555; /* Cambia el color de fondo de los botones */
+    color: #fff; /* Cambia el color del texto de los botones */
+    border: none; /* Elimina el borde de los botones */
+}
+
+/* Estilos para el modo oscuro del encabezado */
+.modo-oscuro .caezinha {
+    background-color: #111; /* Cambia el color de fondo del encabezado */
+    border-bottom-color: #000; /* Cambia el color del borde inferior */
+    color: #fff; /* Cambia el color del texto */
+}
+
+/* Estilos para el modo oscuro de la tabla de personas registradas */
+.modo-oscuro .tabla-contenedor {
+    background-color: #333; /* Cambia el color de fondo del contenedor de la tabla */
+    border: 1px solid #666; /* Cambia el borde del contenedor de la tabla */
+    color: #fff; /* Cambia el color del texto */
+}
+
+/* Estilos para la tabla de personas registradas en modo oscuro */
+.modo-oscuro #tbPersonas {
+    background-color: #333; /* Cambia el color de fondo */
+    color: #fff; /* Cambia el color del texto */
+    border-color: #555; /* Cambia el color del borde */
+}
+
+/* Estilos para filas pares en modo oscuro */
+.modo-oscuro #tbPersonas tbody tr:nth-child(even) {
+    background-color: #444; /* Cambia el color de fondo de las filas pares */
+}
+
+/* Estilos para encabezados en modo oscuro */
+.modo-oscuro #tbPersonas th {
+    background-color: #222; /* Cambia el color de fondo de los encabezados */
+    color: #fff; /* Cambia el color del texto de los encabezados */
+}
+
+/* Estilos para filas alternas en la tabla en modo oscuro */
+.modo-oscuro table tbody tr:nth-child(even) {
+    background-color: #444; /* Cambia el color de fondo de las filas pares */
+}
+
+.modo-oscuro input[type="text"],
+.modo-oscuro textarea,
+.modo-oscuro select {
+    background-color: #444; /* Cambia el color de fondo de los campos de texto */
+    color: #fff; /* Cambia el color del texto */
+    border: 1px solid #666; /* Cambia el borde de los campos de texto */
+}
+
+/* Estilos para el encabezado */
+.caezinha {
+    background-color: #ffffff; /* Establece el color de fondo */
+    display: flex; /* Establece un diseño flexible */
+    align-items: center; /* Alinea verticalmente los elementos al centro */
+    justify-content: bottom; /* Justifica los elementos al fondo */
+    padding: 10px; /* Añade un padding de 10px */
+    border-style: inset; /* Establece el estilo del borde */
+    border-top: #ffffff; /* Color del borde superior */
+    border-left: #ffffff; /* Color del borde izquierdo */
+    border-right: #ffffff; /* Color del borde derecho */
+    border-bottom-color: #F0F1F2; /* Color del borde inferior */
+}
+
+/* Estilos para los botones en el encabezado */
+.botones {
+    display: flex; /* Establece un diseño flexible */
+    justify-content: flex-end; /* Alinea los elementos al extremo derecho */
+    align-items: center; /* Alinea verticalmente al centro */
+    flex-grow: 1; /* Permite que los botones ocupen todo el espacio restante */
+}
+
+/* Estilos para los botones */
+.botones button {
+    margin-left: 10px; /* Espacio entre los botones */
+    padding: 5px 10px; /* Ajusta el espacio interno */
+    background-color: #424242; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.botones button:hover {
+    background-color: #555; /* Cambia el color de fondo al pasar el ratón */
+}
+
+/* Estilos para el logo */
+.logo {
+    height: 100px; /* Altura del logo */
+    width: 200px; /* Ancho del logo */
+}
+
+/* Estilos para el texto del encabezado */
+.textocaeza {
+    display: flex; /* Establece un diseño flexible */
+    margin-left: 10px; /* Margen izquierdo */
+    justify-content: bottom; /* Justifica el texto al fondo */
+    color: #424242; /* Color del texto */
+    font-size: larger; /* Tamaño de la fuente más grande */
+}
+
+/* Estilos para la sección de acceso */
+.access {
+    display: flex; /* Establece un diseño flexible */
+    align-items: right; /* Alinea los elementos a la derecha */
+}
+
+/* Estilos para la clase destacado */
+.destacado {
+    background-color: #F0F1F2; /* Color de fondo */
+    margin-left: 400px; /* Margen izquierdo */
+    margin-right: 400px; /* Margen derecho */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilos para el formulario */
+.formulario {
+    display: flex; /* Establece un diseño flexible */
+    flex-direction: column; /* Dirección de los elementos en columna */
+    align-items: center; /* Alinea los elementos al centro */
+    font-size: 125%; /* Tamaño de la fuente */
+}
+
+form label {
+    display: block; /* Display en bloque */
+    margin-top: 10px; /* Margen superior */
+}
+
+/* Estilo para checkboxes y radios */
+form input[type="checkbox"],
+form input[type="radio"] {
+    display: inline-block; /* Display en línea */
+    margin-right: 5px; /* Margen derecho */
+}
+
+/* Alineación del texto al lado de los checkboxes y radios */
+form label[for="hombres"],
+form label[for="mujeres"],
+form label[for="masculino"],
+form label[for="femenino"],
+form label[for="UPDpreferencia1"],
+form label[for="UPDpreferencia2"],
+form label[for="UPDmasculino"],
+form label[for="UPDfemenino"] {
+    display: inline-block; /* Display en línea */
+    width: auto; /* Ancho automático */
+    margin-right: 10px; /* Margen derecho */
+}
+
+/* Estilos para los campos de texto, email, select y textarea en el formulario */
+form input[type="text"],
+form input[type="email"],
+form select,
+form textarea {
+    width: 100%; /* Ancho completo */
+    padding: 8px; /* Espaciado interno */
+    margin-top: 5px; /* Margen superior */
+    border: 1px solid #ddd; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilos para los botones de enviar y botones en el formulario */
+form input[type="submit"],
+form button {
+    margin-top: 20px; /* Margen superior */
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: #424242; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+form input[type="submit"]:hover,
+form button:hover {
+    background-color: #555; /* Cambia el color de fondo al pasar el ratón */
+}
+
+/* Estilos para el contenedor de la tabla */
+.tabla-contenedor {
+    margin-left: 400px; /* Margen izquierdo */
+    margin-right: 400px; /* Margen derecho */
+    margin-top: 20px; /* Margen superior */
+    padding: 20px; /* Espaciado interno */
+    background-color: #ffffff; /* Color de fondo */
+    border: 1px solid #ddd; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilos para el título del contenedor de la tabla */
+.tabla-contenedor h2 {
+    text-align: center; /* Alineación centrada */
+    color: #424242; /* Color del texto */
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%; /* Ancho completo */
+    border-collapse: collapse; /* Colapsar bordes */
+    margin-top: 20px; /* Margen superior */
+}
+
+/* Estilos para las celdas de la tabla */
+table th,
+table td {
+    border: 1px solid #ddd; /* Borde */
+    padding: 10px; /* Espaciado interno */
+    text-align: left; /* Alineación a la izquierda */
+}
+
+/* Estilos para los encabezados de la tabla */
+table th {
+    background-color: #F0F1F2; /* Color de fondo */
+}
+
+/* Estilos para las filas pares del cuerpo de la tabla */
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Color de fondo */
 }

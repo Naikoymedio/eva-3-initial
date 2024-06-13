@@ -3,42 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario de Registro</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
     <header class="caezinha">
-        <img class="logo" src="assets/logo.jpg" alt="Logo principal">
+        <img class="logo" src="assets/logo.png" alt="Logo principal">
         <div class="textocaeza">
             <p>Inicio</p>
         </div>
+        <div class="botones">
+            <button id="modoOscuroBtn">Modo Oscuro</button>
+            <button id="aumentarFuenteBtn">Aumentar Tamaño de Fuente</button>
+            <button id="disminuirFuenteBtn">Disminuir Tamaño de Fuente</button>
+        </div>
     </header>
     <div class="destacado">
-        <h1>Formulario de registro</h1>    
-        <div class="formulario">
-            <form>
+        <h1>Formulario de Registro</h1>    
+        <div class="formulario" id="registroFormContainer">
+            <form id="registroForm">
                 <label for="nombre">Nombre:</label><br>
                 <input type="text" id="nombre" name="nombre"><br>
                 <label for="apellido">Apellido:</label><br>
                 <input type="text" id="apellido" name="apellido"><br>
-                <label for="telefono">Telefono</label><br>
+                <label for="telefono">Teléfono:</label><br>
                 <input type="text" id="telefono" name="telefono"><br>
-                <label for="email">Correo electronico:</label><br>
-                <input type="text" id="email" name="email"> <br>
+                <label for="email">Correo Electrónico:</label><br>
+                <input type="text" id="email" name="email"><br>
                 <label for="rut">RUT:</label><br>
                 <input type="text" id="rut" name="rut"><br>
                 <label for="edad">Edad:</label><br>
-                <input type="text" id="edad" name="edad"> <br>
-                <label for="genero">Genero:</label><br>
-                <input type="radio" id="genero" name="genero"><br>
-                <input type="radio" id="genero" name="genero"><br>
-                <label for="preferencia">Preferencia:</label><br>
-                <input type="checkbox" id="preferencia" name="preferencia"> <br>
-                <input type="checkbox" id="preferencia" name="preferencia"> <br>
-                <label for="describete">Describete!:</label><br>
-                <input type="textarea" id="describete" name="describete"> <br>
-                <input type="submit" value="Enviar">
-            </form> 
+                <select id="edad" name="edad"></select><br>
+                <label for="genero">Género:</label><br>
+                <input type="radio" id="masculino" name="genero" value="Masculino">
+                <label for="masculino">Masculino</label><br>
+                <input type="radio" id="femenino" name="genero" value="Femenino">
+                <label for="femenino">Femenino</label><br>
+                <label for="preferencias">Preferencias:</label><br>
+                <input type="checkbox" id="hombres" name="preferencia" value="Hombres">
+                <label for="hombres">Hombres</label><br>
+                <input type="checkbox" id="mujeres" name="preferencia" value="Mujeres">
+                <label for="mujeres">Mujeres</label><br>
+                <label for="describete">Descríbete:</label><br>
+                <textarea id="describete" name="describete"></textarea><br>
+                <button type="button" id="btnRegistrar">Registrar</button>
+            </form>
         </div>
+
+        <div class="formulario" id="actualizarFormContainer" style="display:none;">
+            <form id="actualizarForm">
+                <label for="UPDnombre">Nombre:</label><br>
+                <input type="text" id="UPDnombre" name="UPDnombre"><br>
+                <label for="UPDapellido">Apellido:</label><br>
+                <input type="text" id="UPDapellido" name="UPDapellido"><br>
+                <label for="UPDtelefono">Teléfono:</label><br>
+                <input type="text" id="UPDtelefono" name="UPDtelefono"><br>
+                <label for="UPDemail">Correo Electrónico:</label><br>
+                <input type="text" id="UPDemail" name="UPDemail"><br>
+                <label for="UPDrut">RUT:</label><br>
+                <input type="text" id="UPDrut" name="UPDrut"><br>
+                <label for="UPDedad">Edad:</label><br>
+                <select id="UPDedad" name="UPDedad"></select><br>
+                <label for="UPDgenero">Género:</label><br>
+                <input type="radio" id="UPDmasculino" name="UPDgenero" value="Masculino">
+                <label for="UPDmasculino">Masculino</label><br>
+                <input type="radio" id="UPDfemenino" name="UPDgenero" value="Femenino">
+                <label for="UPDfemenino">Femenino</label><br>
+                <label for="UPDpreferencias">Preferencias:</label><br>
+                <input type="checkbox" id="UPDhombres" name="UPDpreferencia" value="Hombres">
+                <label for="UPDhombres">Hombres</label><br>
+                <input type="checkbox" id="UPDmujeres" name="UPDpreferencia" value="Mujeres">
+                <label for="UPDmujeres">Mujeres</label><br>
+                <label for="UPDdescribete">Descríbete:</label><br>
+                <textarea id="UPDdescribete" name="UPDdescribete"></textarea><br>
+                <button type="button" id="btnActualizar">Actualizar</button>
+                <button type="button" id="btnCancelar">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="tabla-contenedor">
+        <h2>Lista de Personas Registradas</h2>
+        <table id="tbPersonas">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>RUT</th>
+                    <th>Edad</th>
+                    <th>Género</th>
+                    <th>Preferencias</th>
+                    <th>Descripción</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="assets/js/script.js" type="module"></script>
 </body>
 </html>
